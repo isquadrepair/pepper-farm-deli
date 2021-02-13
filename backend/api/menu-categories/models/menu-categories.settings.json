@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menu_categories",
+  "info": {
+    "name": "Menu Categories",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "menus": {
+      "via": "menu_categories",
+      "collection": "menus",
+      "dominant": true
+    }
+  }
+}

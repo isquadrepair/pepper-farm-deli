@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sub_categories",
+  "info": {
+    "name": "Sub Categories",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "parents": {
+      "collection": "categories",
+      "via": "children"
+    },
+    "pages": {
+      "collection": "pages",
+      "via": "sub_categories",
+      "dominant": true
+    }
+  }
+}

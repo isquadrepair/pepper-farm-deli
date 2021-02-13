@@ -8,10 +8,11 @@ export const config: Config = {
   taskQueue: 'async',
   outputTargets: [{
     type: 'www',
-    serviceWorker: null
+    serviceWorker: null,
+    prerenderConfig: './prerender.config.ts',
   }],
   devServer:{
     address: '0.0.0.0',
     port:3333
-  }
+  },
 };

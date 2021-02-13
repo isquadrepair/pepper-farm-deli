@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "pages",
+  "collectionName": "menus",
   "info": {
-    "name": "Pages",
+    "name": "Menu Items",
     "description": ""
   },
   "options": {
@@ -11,15 +11,13 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
+    "name": {
+      "type": "string"
     },
-    "description": {
-      "type": "richtext",
-      "required": true
+    "Description": {
+      "type": "text"
     },
-    "featured": {
+    "image": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
@@ -30,17 +28,16 @@
       "plugin": "upload",
       "required": false
     },
-    "categories": {
-      "via": "pages",
-      "collection": "categories"
+    "price": {
+      "type": "decimal"
     },
     "url": {
       "type": "uid",
-      "targetField": "title"
+      "targetField": "name"
     },
-    "sub_categories": {
-      "via": "pages",
-      "collection": "sub-categories"
+    "menu_categories": {
+      "collection": "menu-categories",
+      "via": "menus"
     }
   }
 }

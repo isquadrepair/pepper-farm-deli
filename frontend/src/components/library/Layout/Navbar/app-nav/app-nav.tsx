@@ -35,27 +35,15 @@ export class AppNav {
     return (
       <Host>
         <ion-header>
-          <ion-toolbar>
-            <ion-title class="ion-text-wrap">
-              <ion-img
-                src="/assets/images/logo.png"
-                style={{ height: '50px' }}
-              ></ion-img>
-              <h1>PEPPER FARM DELI</h1>
+          <ion-toolbar style={{ display: 'flex', minHeight: '100px', alignItems: 'center' }}>
+            <ion-title style={{ display: 'flex', textAlign: 'center', justifyContent: 'space-around' }}>
+              <img src="/assets/images/logo.png" style={{ display: 'flex', maxWidth: '95px' }} />
             </ion-title>
-            <ion-buttons
-              style={{ justifyContent: 'center' }}
-              slot={this.mQuery ? '' : 'end'}
-            >
-              {this.mQuery ? (
-                <app-nav-items menuItems={this.menuItems} />
-              ) : (
-                <ion-menu-button></ion-menu-button>
-              )}
+            <ion-buttons style={{ justifyContent: 'center' }} slot={this.mQuery ? 'end' : 'end'}>
+              {this.mQuery ? <app-nav-items menuItems={this.menuItems} /> : <ion-menu-button style={{ fontSize: '56px' }}></ion-menu-button>}
             </ion-buttons>
           </ion-toolbar>
         </ion-header>
-
         <slot></slot>
       </Host>
     );

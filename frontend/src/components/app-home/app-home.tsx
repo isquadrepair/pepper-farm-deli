@@ -1,5 +1,5 @@
 import { Component, h, State } from '@stencil/core';
-const apiUrl = 'http://localhost:1337';
+import { apiUrl, fetchData } from '../../global/app';
 @Component({
   tag: 'app-home',
   styleUrl: 'app-home.css',
@@ -7,9 +7,7 @@ const apiUrl = 'http://localhost:1337';
 export class AppHome {
   @State() restaurant: any;
   getRestaurant() {
-    fetch(apiUrl + '/pages/1')
-      .then(data => data.json())
-      .then(data => (this.restaurant = data));
+    fetchData('/pages/1').then(data => (this.restaurant = data));
   }
   componentWillLoad() {
     setTimeout(() => {

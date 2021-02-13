@@ -1,11 +1,20 @@
-import { Component, Host, h, Prop } from '@stencil/core';
-import { menuItems } from '../../../../global/routes';
+import { Component, Host, h, Prop, State } from '@stencil/core';
+import { fetchData } from '../../../../global/app';
+// import { menuItems } from '../../../../global/routes';
 
 @Component({
   tag: 'app-layout',
   styleUrl: 'app-layout.css',
 })
 export class AppLayout {
+  @State() categories;
+  async getCategories() {
+    const categories = await fetchData('/categories');
+    this.categories = categories;
+  }
+  componentWillLoad() {
+    this.getCategories();
+  }
   //@Prop() pageName: string;
   @Prop() paneDisabled;
   render() {
@@ -18,12 +27,10 @@ export class AppLayout {
                 <ion-title>Start Menu</ion-title>
               </ion-toolbar>
             </ion-header>
-            <ion-content>
-              <app-menu-items menuItems={menuItems} />
-            </ion-content>
+            <ion-content>{this.categories && <app-menu-items menuItems={this.categories} />}</ion-content>
           </ion-menu>
           <div class="ion-page" id="main-page">
-            <app-nav menuItems={menuItems}></app-nav>
+            {this.categories && <app-nav menuItems={this.categories}></app-nav>}
             <ion-content scrollX={false} scrollY={false}>
               <slot></slot>
             </ion-content>
