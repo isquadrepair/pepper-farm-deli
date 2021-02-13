@@ -19,9 +19,9 @@
       "type": "uid",
       "targetField": "name"
     },
-    "menus": {
+    "menu_items": {
       "via": "menu_categories",
-      "collection": "menus",
+      "collection": "menu-items",
       "dominant": true
     }
   }

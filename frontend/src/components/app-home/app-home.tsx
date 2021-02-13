@@ -1,4 +1,4 @@
-import { Component, h, State } from '@stencil/core';
+import { Component, h, State, Prop } from '@stencil/core';
 import { apiUrl, fetchData } from '../../global/app';
 @Component({
   tag: 'app-home',
@@ -6,8 +6,11 @@ import { apiUrl, fetchData } from '../../global/app';
 })
 export class AppHome {
   @State() restaurant: any;
+  @Prop() slug: string;
   getRestaurant() {
-    fetchData('/pages/1').then(data => (this.restaurant = data));
+    let categories = (window as any).__INITIAL_DATA__;
+
+    fetchData(this.slug).then(data => (this.restaurant = data));
   }
   componentWillLoad() {
     setTimeout(() => {

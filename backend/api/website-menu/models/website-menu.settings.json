@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "website_menu",
+  "info": {
+    "name": "Website Menu",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "page": {
+      "model": "pages",
+      "via": "website_menu"
+    }
+  }
+}

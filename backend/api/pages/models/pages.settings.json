@@ -15,7 +15,7 @@
       "type": "string",
       "required": true
     },
-    "description": {
+    "content": {
       "type": "richtext",
       "required": true
     },
@@ -31,16 +31,21 @@
       "required": false
     },
     "categories": {
-      "via": "pages",
-      "collection": "categories"
+      "collection": "categories",
+      "via": "pages"
     },
     "url": {
       "type": "uid",
       "targetField": "title"
     },
     "sub_categories": {
-      "via": "pages",
-      "collection": "sub-categories"
+      "columnName": "Sub Categories",
+      "collection": "sub-categories",
+      "via": "pages"
+    },
+    "website_menu": {
+      "via": "page",
+      "model": "website-menu"
     }
   }
 }

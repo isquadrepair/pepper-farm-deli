@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface AppHome {
+        "slug": string;
     }
     interface AppImg {
         "alt"?: string;
@@ -123,6 +124,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AppHome {
+        "slug"?: string;
     }
     interface AppImg {
         "alt"?: string;

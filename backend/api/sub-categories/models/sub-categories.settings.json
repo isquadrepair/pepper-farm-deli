@@ -19,13 +19,16 @@
       "targetField": "name"
     },
     "parents": {
-      "collection": "categories",
-      "via": "children"
+      "via": "children",
+      "collection": "categories"
     },
     "pages": {
-      "collection": "pages",
       "via": "sub_categories",
+      "collection": "pages",
       "dominant": true
+    },
+    "content": {
+      "type": "richtext"
     }
   }
 }

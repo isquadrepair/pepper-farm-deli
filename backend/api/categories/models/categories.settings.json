@@ -17,8 +17,8 @@
       "required": true
     },
     "pages": {
-      "collection": "pages",
       "via": "categories",
+      "collection": "pages",
       "dominant": true
     },
     "url": {
@@ -26,9 +26,12 @@
       "targetField": "name"
     },
     "children": {
-      "via": "parents",
       "collection": "sub-categories",
+      "via": "parents",
       "dominant": true
+    },
+    "content": {
+      "type": "richtext"
     }
   }
 }
